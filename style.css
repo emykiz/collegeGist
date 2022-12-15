@@ -60,7 +60,7 @@
   }
   nav a:hover {
     border-bottom: 0 !important;
-    color: rgb(223, 222, 222) !important;
+    color:  brown !important;
   } increase leads,
   .men{
     width:50%;
@@ -458,7 +458,9 @@
     margin-top: 10px;
     cursor:pointer;
 }
-
+.live-icon  a{
+ text-decoration: none;
+}
 
 
 /* Section search */
@@ -505,6 +507,7 @@
     width:24%;
     height: 40px;
     background-color: blue;
+    background-image: linear-gradient(blue, brown);
     border: none;
     border-radius: 20px;
     color: white;
@@ -648,10 +651,12 @@ footer{
     gap:1em;
 }
 .trend-post{
+  width:100%;
     border-bottom: 1px solid gray;
 }
 .profile{
     display:flex;
+    gap:0.5em;
     align-items: center;
 }
 .profile-pics{
@@ -798,6 +803,24 @@ footer{
   }
 }
 @media only screen and (max-width:395px){
+  .profile-pics{
+    width:60px;
+    height:60px;
+    background-color: gray;
+    border-radius: 100%;
+}
+.profile-details{
+  font-size: 15px;
+}
+  .likeandshares{
+    font-size: 12px !important;
+  }
+  .likeandshares .like h4{
+    font-size: 12px !important;
+  }
+  .likeandshares .like p{
+    font-size: 10px !important;
+  }
     .flex-footer{
         font-size: 13px;
     }
