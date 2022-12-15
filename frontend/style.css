@@ -81,17 +81,18 @@
     position: absolute;
     left:0px;
     top:65px;
-    display: flex;
+    display: flex !important;
     flex-direction: column;
     justify-content: center !important;
     align-items: center !important;
-    gap:3em !important;
+    gap:2em !important;
     transition: 0.5s ease-in-out;
     background-color: white;
     color: black;
     visibility:hidden;
     padding-top: 20px;
     padding-bottom: 50px;
+    text-align: center;
     /* z-index: -900; */
     /* animation: emy 3s ease-in; */
   }
@@ -354,6 +355,9 @@
   }
 
   @media only screen and (max-width:530px){
+    .adverts{
+      display: none;
+    }
     .menu-icon div {
       width: 27px !important;
       height: 3px !important;
@@ -561,6 +565,7 @@ cursor: pointer;
 footer{
     width:100%;
     padding:20px;
+    background-color: rgb(226, 226, 226) !important;
 }
 .footer-flex{
     width:100%;
@@ -581,6 +586,9 @@ footer{
     cursor: pointer;
     text-decoration: none;
     color: gray;
+}
+.flex-footer a:hover{
+  color:  brown !important;
 }
 .copyright{
     width:100%;
@@ -768,6 +776,9 @@ footer{
   }
 }
 @media only screen and (max-width:565px){
+  .Logo_nav{
+    width:60%
+  }
     .news-flex div{
         width:250px;
         height:110px;
