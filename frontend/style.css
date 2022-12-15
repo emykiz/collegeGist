@@ -536,10 +536,10 @@
     padding-bottom: 10px;
 }
 .news-body h1{
-    font-size: 33px;
+    font-size: 25px;
 }
 .news-body h6{
-    font-size: 17px;
+    font-size: 14px;
     color: rgb(119, 119, 119);
 }
 .news-flex{
@@ -626,6 +626,7 @@ footer{
 }
 .prev-btn, .next-btn{
     color:rgb(118, 175, 240);
+    cursor: pointer;
 }
 .pagination div ul{
     display: flex;
@@ -1033,4 +1034,28 @@ hr{
 }
 .top{
     display: none;
+}
+
+
+/* PAGINATION */
+.pagination {
+  display: inline-block;
+  background-color: #fafafa;
+}e
+
+.pagination button {
+  color: #4558d1;
+  float: left;
+  padding: 16px 16px;
+}
+
+.pagination button.active {
+  background-color: #4558d1;
+  color: #fafafa;
+}
+
+.pagination button:hover {
+  background-color: #4558d1;
+  color: #fafafa;
+  cursor: pointer;
 }
