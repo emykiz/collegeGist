@@ -1,3 +1,5 @@
+// const { default: axios } = require("axios");
+
 const menuIcon = document.querySelector(".menu-icon");
 const lines = document.querySelectorAll(".menu-icon div");
 console.log(menuIcon);
@@ -15,6 +17,139 @@ menuIcon.addEventListener("click", () => {
 });
 
 
+
+// post connection to the backend
+// async function getData(){
+//   const postream = await fetch('https://localhost/api/posts');
+
+//   const posts = await postream.json();
+//   let i = 0;
+//   window.booksPerPage = 5;
+//   window.curr = 1;
+//   posts.slice(0,booksPerPage).forEach(post =>{
+//     i++;
+//     document.getElementById("data").innerHTML += `<h1 class="head1">${post.head1}</h1>
+//     <h1 class="head2">${post.head2}</h1>
+//     <h6 class="head3">${post.head3}</h6>
+//     <div class="news-flex">
+//         <div>
+
+//         </div>
+//         <p class="news-deatails">
+//             ${post.news}
+//             <span>[continue...]</span>
+//         </p>`;
+
+
+//         function changeData(index) {
+//           document.querySelectorAll("button")[window.curr].classList.remove("active");
+//           document.querySelectorAll("button")[index].classList.add("active");
+//           let showData = posts.slice((index-1)*booksPerPage,index*booksPerPage);
+//           document.getElementById("data").innerHTML = "";
+//           showData.forEach((obj) => {
+//               document.getElementById("data").innerHTML += `<h1 class="head1">${obj.head1}</h1>
+//               <h1 class="head2">${obj.head2}</h1>
+//               <h6 class="head3">${obj.head3}</h6>
+//               <div class="news-flex">
+//                   <div>
+        
+//                   </div>
+//                   <p class="news-deatails">
+//                       ${obj.news}
+//                       <span>[continue...]</span>
+//                   </p>`;;
+//           });
+//           window.curr = index;
+//         }
+//         changeData();
+
+//         function next() {
+//           if (window.curr < 10) {
+//               changeData(window.curr+1);
+//           }
+//         }
+//         next()
+        
+//         function prev() {
+//           if (window.curr > 1) {
+//               changeData(window.curr-1);
+//           }
+//         }
+//         prev();
+//   })
+
+// }
+// getData();
+
+
+// Users Registration
+const registerForm = document.getElementById('register-form');
+registerForm.addEventListener('submit', registerUser);
+console.log(registerForm)
+function registerUser(e){
+   
+   
+    e.preventDefault();
+    const sOrganization = document.getElementById('Organization').value;
+    const Createname = document.getElementById('name').value;
+    const phoneEmail = document.getElementById('phone/email2').value;
+    const createPassword = document.getElementById('password2').value;
+    const data = {
+        'organization':sOrganization,
+        'fullName':Createname,
+        'email':phoneEmail,
+        'password':createPassword,
+    }
+    console.log(data);
+    try {
+        fetch('http://localhost:4000/app/signup',{
+            method:'POST',
+            headers : {
+                'Content-Type':'application/json',
+                // "Access-Control-Allow-Origin": "*",
+            },
+            body: JSON.stringify(data)
+        }).then(res=>{
+            console.log('finished fetching')
+            res.json().then(obj => {
+                // console.log(obj);
+                // console.log(obj['data']);
+            })
+        })
+    } catch (error) {
+        console.log(error);
+    }
+    
+}
+
+// LOGIN REGISTRATION
+const loginForm = document.getElementById('login-form')
+login.addEventListener('submit', loginUser)
+
+function loginUser(e){
+    e.preventDefault();
+
+    const email = document.getElementById('phone/email').value;
+    const password = document.getElementById('password').value;
+
+    const data = {
+        'email':email,
+        'password':password
+    }
+
+   try {
+    fetch('http://localhost:4000/app/login',{
+        method:'POST',
+        headers : {
+            'Content-Type':'application/json',
+            // "Access-Control-Allow-Origin": "*",
+        },
+        body: JSON.stringify(data)
+    })
+   }catch (error) {
+        console.log(error)
+   }
+}
 const data = [
   {
       head1:"Admission into Emediong",
@@ -221,6 +356,7 @@ const data = [
     news:"seriously i am ghggj"
   }, 
 ];
+const datas =
 window.booksPerPage = 5;
 window.curr = 1;
 data.slice(0,booksPerPage).forEach((obj) => {
