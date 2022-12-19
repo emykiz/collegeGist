@@ -1,16 +1,18 @@
 
 // Create Account Validation
 
-const sOrganization = document.getElementById('Organization');
+const sOrganization = document.getElementById('department');
 const Createname = document.getElementById('name');
-const phoneEmail = document.getElementById('phone/email2');
+const phoneEmail = document.getElementById('phone');
+const Email = document.getElementById('email');
 const createPassword = document.getElementById('password2');
 const check1 = document.getElementById('check1');
 const check2 = document.getElementById('check2');
 const createBtn = document.querySelector('.create-acct');
 const orgErrorMsg = document.querySelector('.organization-error-msg');
 const fullnameErrorMsg = document.querySelector('.fullname-error-msg');
-const phoneEemailErrormsg = document.querySelector('.phoneEmail-error-msg');
+const emailErrormsg = document.querySelector('.email-error-msg');
+const PhoneErrormsg = document.querySelector('.phone-error-msg');
 const passwordErrorMsg = document.querySelector('.password-error-msg')
 const Signup = document.querySelector('.sign-up')
 createBtn.onclick = (e)=>{
@@ -28,9 +30,14 @@ createBtn.onclick = (e)=>{
     }
     else if(phoneEmail.value ===""){
         phoneEmail.style.border = '1px solid red'
-        phoneEemailErrormsg.style.display = 'block'
-        phoneEemailErrormsg.style.color = 'red'
+        PhoneErrormsg.style.display = 'block'
+        PhoneErrormsg.style.color = 'red'
         e.preventDefault()
+    }
+    else if(Email.value ===""){
+        Email.style.border = '1px solid red'
+        emailErrormsg.style.display = 'block'
+        emailErrormsg.style.color = 'red'
     }
     else if(createPassword.value ===""){
         createPassword.style.border = '1px solid red'
@@ -79,15 +86,15 @@ Createname.onfocus = ()=>{
 phoneEmail.onblur = ()=>{
     if(phoneEmail.value ===""){
         phoneEmail.style.border = '1px solid red'
-        phoneEemailErrormsg.style.display = 'block'
-        phoneEemailErrormsg.style.color = 'red'
+        PhoneErrormsg.style.display = 'block'
+        PhoneErrormsg.style.color = 'red'
     }
     else{
         phoneEmail.style.border = '1px solid #C4C4C4'
     }
 }
 phoneEmail.onfocus = ()=>{
-    phoneEemailErrormsg.style.display = 'none'
+    PhoneErrormsg.style.display = 'none'
 }
 
 createPassword.onblur = ()=>{
@@ -102,6 +109,20 @@ createPassword.onblur = ()=>{
 }
 createPassword.onfocus = ()=>{
     passwordErrorMsg.style.display = 'none'
+}
+
+Email.onblur = ()=>{
+    if(Email.value ===""){
+        Email.style.border = '1px solid red'
+        emailErrormsg.style.display = 'block'
+        emailErrormsg.style.color = 'red'
+    }
+    else{
+        Email.style.border = '1px solid #C4C4C4'
+    }
+}
+Email.onfocus = ()=>{
+    emailErrormsg.style.display = 'none'
 }
 
 Signup.onclick = ()=>{
@@ -126,7 +147,6 @@ Signup.onclick = ()=>{
 // class="login-btn
 
 const loginBtn = document.querySelector('.login-btn')
-const PhoneEmail = document.getElementById('phone/email');
 const passwordError = document.querySelector('.password-error-message');
 const phoneError = document.querySelector('.phone-error-message')
 const Password = document.getElementById('password');

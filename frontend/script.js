@@ -86,7 +86,7 @@ menuIcon.addEventListener("click", () => {
 const registerForm = document.getElementById('register-form');
 registerForm.addEventListener('submit', registerUser);
 console.log(registerForm)
-function registerUser(e){
+async function registerUser(e){
    
    
     e.preventDefault();
@@ -101,54 +101,52 @@ function registerUser(e){
         'password':createPassword,
     }
     console.log(data);
-    try {
-        fetch('http://localhost:4000/app/signup',{
+    const result = await fetch('http://localhost:4000/app/signup',{
             method:'POST',
             headers : {
                 'Content-Type':'application/json',
                 // "Access-Control-Allow-Origin": "*",
             },
             body: JSON.stringify(data)
-        }).then(res=>{
-            console.log('finished fetching')
-            res.json().then(obj => {
-                // console.log(obj);
-                // console.log(obj['data']);
-            })
-        })
-    } catch (error) {
-        console.log(error);
-    }
-    
-}
+          }).then(res=> res.json())
+          if(result.status === 200){
+            alert("successful registration");
+            window.location.replace("index.html");
+          }else{
+            alert("Registration failed")
+          }
+      }
 
 // LOGIN REGISTRATION
 const loginForm = document.getElementById('login-form')
 login.addEventListener('submit', loginUser)
 
-function loginUser(e){
+async function loginUser(e){
     e.preventDefault();
 
     const email = document.getElementById('phone/email').value;
     const password = document.getElementById('password').value;
 
     const data = {
-        'email':email,
+        'email':email, 
         'password':password
     }
 
-   try {
-    fetch('http://localhost:4000/app/login',{
+   
+    const result = await fetch('http://localhost:4000/app/login',{
         method:'POST',
         headers : {
             'Content-Type':'application/json',
             // "Access-Control-Allow-Origin": "*",
         },
         body: JSON.stringify(data)
-    })
-   }catch (error) {
-        console.log(error)
-   }
+    }).then(res=> res.json())
+    if(result.status === 200){
+      alert("successful registration");
+      window.location.replace("index.html");
+    }else{
+      alert("Registration failed")
+    }
 }
 const data = [
   {

@@ -33,7 +33,7 @@ router.post('/login', async (req, res)=>{
         !validated && res.status(404).json("Wrong credentials")
         
         const { password, ...others } = user._doc;
-        res.status(200).json(others)
+        res.status(200).json(others);
     }
     catch(err){
         res.status(500).json(err)

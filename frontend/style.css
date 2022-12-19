@@ -565,7 +565,7 @@ cursor: pointer;
 footer{
     width:100%;
     padding:20px;
-    background-color: rgb(226, 226, 226) !important;
+    background-color: black !important;
 }
 .footer-flex{
     width:100%;
@@ -905,7 +905,7 @@ footer{
     display: block;
 }
 
-.flex input{
+.flex input, .flex select{
     border: 1px solid #C4C4C4;
     border-radius: 24px;
     width: 100%;
@@ -992,7 +992,7 @@ margin-left: 20px;
     border: 1px solid #707070;
     border-radius: 10px;
 }
-.sign-up-container .flex input{
+.sign-up-container .flex input, .sign-up-container select{
     width:90%;
 }
 .sign-up-container .flex .Eye2, .sign-up-container .flex .hide2{
@@ -1009,6 +1009,9 @@ margin-left: 20px;
 }
 .sign-up-container form p{
     text-align: center;
+}
+.sign-up-container select{
+
 }
 .checkers{
     width:15px;

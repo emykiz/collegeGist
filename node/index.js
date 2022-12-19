@@ -3,11 +3,11 @@ const app = express();
 const  dotenv = require('dotenv');
 const cors = require('cors')
 const mongoose = require('mongoose');
-const authRoute = require('./routes/authen')
-const usersRoute = require('./routes/users')
-const postRoute = require('./routes/posts')
-const categoryRoute = require('./routes/categorys')
-const multer = require('multer')
+const authRoute = require('./routes/authen');
+const usersRoute = require('./routes/users');
+const postRoute = require('./routes/posts');
+const categoryRoute = require('./routes/categorys');
+const multer = require('multer');
 
 dotenv.config();
 app.use(express.json());
