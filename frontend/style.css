@@ -607,8 +607,19 @@ footer{
     padding: 20px;
     border: 1px solid grey;
     display: flex;
-    margin: auto;
     height:50vh
+}
+.Bigtv div{
+  width:100%;
+  background-color: #4558d1;
+  height: 100px;
+  /* margin:auto; */
+  /* object-fit: contain; */
+}
+.fa-play{
+  color:red;
+  font-size: 40px;
+  width: 100%;
 }
 
     /* section pagination */
@@ -1143,3 +1154,5 @@ header {
   margin-top: 150px;
   z-index: 999;
 }
+
+
