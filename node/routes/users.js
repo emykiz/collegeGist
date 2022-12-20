@@ -16,6 +16,7 @@ router.put("/:id", async(req,res) =>{
                 $set: req.body,
             }, {new:true});
             res.status(200).json(updatedUser)
+            console.log(updatedUser);
         } catch (err) {
             console.log(err);
             res.status(500).json(err)
@@ -63,4 +64,24 @@ router.get("/:id", async (req,res)=>{
         res.status(500).json(err)
     }
 })
+
+
+router.put("/:id", async (req, res)=>{
+    return await Notify.updateOne(userId, { isSeen: true })
+})
+
+router.patch('/update-user-role', async (req, res) => {
+    try {
+      const { userId, newRole } = req.body;
+  
+      // Update the user's role in the database
+      await User.findByIdAndUpdate(userId, { role: newRole });
+  
+      // Send a response to the client indicating that the update was successful
+      res.send({ status: 'success' });
+    } catch (err) {
+      // If there was an error, send a response to the client indicating that the update failed
+      res.status(500).send({ status: 'error', error: err.message });
+    }
+  });
 module.exports = router

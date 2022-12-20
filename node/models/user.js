@@ -5,7 +5,6 @@ const userSchema = mongoose.Schema(
         fullname:{
             type: String,
            required:true,
-            unique: true,
         },
         university:{
             type: String,
@@ -23,13 +22,12 @@ const userSchema = mongoose.Schema(
         phone:{
             type: String,
            required:true,
-            unique: true,
         },
         year:{
             type: String,
            required:true,
         },
-        dirthofbirth:{
+        dateofbirth:{
             type: String,
            required:true,
         },
@@ -42,6 +40,10 @@ const userSchema = mongoose.Schema(
             type: String,
             default: "",
         },
+        role:{
+            type:String,
+            default:"",
+        }
     },
    { timestamps: true}
 );

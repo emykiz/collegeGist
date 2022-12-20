@@ -1,3 +1,57 @@
+// Users Registration
+const registerForm = document.getElementById('register-form');
+registerForm.addEventListener('submit', registerUser);
+console.log(registerForm);
+async function registerUser(e){
+   
+   
+    e.preventDefault();
+    const sOrganization = document.getElementById('organization').value;
+    const Createname = document.getElementById('name').value;
+    const phone = document.getElementById('phone').value;
+    const department = document.getElementById('department').value;
+    const year = document.getElementById('year').value;
+    const dateofbirth = document.getElementById('dob').value;
+    const email = document.getElementById('email').value;
+    const programme = document.getElementById('programme').value;
+    const createPassword = document.getElementById('password2').value;
+    const data = {
+        'fullname':Createname,
+        'university':sOrganization,
+        'department':department,
+        'programme':programme,
+        'email':email,
+        'phone':phone,
+        'year':year,
+        'dateofbirth':dateofbirth,
+        'password':createPassword,
+    }
+    // console.log(data);
+    const result = await fetch('http://localhost:4000/api/auth/register',{
+            method:'POST',
+            headers : {
+                'Content-Type':'application/json',
+                // "Access-Control-Allow-Origin": "*",
+            },
+            body: JSON.stringify(data)
+          }).then((res)=> res.json())
+          console.log(res.json());
+          // .then(json => console.log(json));
+          // console.log(result.status);
+          // if(res.json().statusCode === 200){
+          //   alert("successful registration");
+          alert("registration successful")
+            window.location.href = '/frontend/index.html';
+          // }else{
+          //   alert("Registration failed")
+          //   alert(result.err)
+            
+          // }
+      }
+
+
+
+
 // const { default: axios } = require("axios");
 
 const menuIcon = document.querySelector(".menu-icon");
@@ -82,40 +136,7 @@ menuIcon.addEventListener("click", () => {
 // getData();
 
 
-// Users Registration
-const registerForm = document.getElementById('register-form');
-registerForm.addEventListener('submit', registerUser);
-console.log(registerForm)
-async function registerUser(e){
-   
-   
-    e.preventDefault();
-    const sOrganization = document.getElementById('Organization').value;
-    const Createname = document.getElementById('name').value;
-    const phoneEmail = document.getElementById('phone/email2').value;
-    const createPassword = document.getElementById('password2').value;
-    const data = {
-        'organization':sOrganization,
-        'fullName':Createname,
-        'email':phoneEmail,
-        'password':createPassword,
-    }
-    console.log(data);
-    const result = await fetch('http://localhost:4000/app/signup',{
-            method:'POST',
-            headers : {
-                'Content-Type':'application/json',
-                // "Access-Control-Allow-Origin": "*",
-            },
-            body: JSON.stringify(data)
-          }).then(res=> res.json())
-          if(result.status === 200){
-            alert("successful registration");
-            window.location.replace("index.html");
-          }else{
-            alert("Registration failed")
-          }
-      }
+
 
 // LOGIN REGISTRATION
 const loginForm = document.getElementById('login-form')
@@ -142,10 +163,10 @@ async function loginUser(e){
         body: JSON.stringify(data)
     }).then(res=> res.json())
     if(result.status === 200){
-      alert("successful registration");
+      alert("successful login");
       window.location.replace("index.html");
     }else{
-      alert("Registration failed")
+      alert("login failed")
     }
 }
 const data = [
@@ -402,3 +423,82 @@ function prev() {
       changeData(window.curr-1);
   }
 }
+
+
+var header;
+header = document.querySelector('header');
+console.log(header);
+var navitem;
+navitem = document.querySelectorAll("nav > ul > li a");
+var count = 0;
+var image_url = [
+    // 'back.jpg',
+    'Ellipse 7.png',
+    //'back3.jpg',
+    'pencil.png',
+    // 'back5.jpg',
+    'MGH Group Logo.png',
+    // 'back7.jpg',
+];
+function checkbgcolor(count) {
+  if (count === 0) {
+      navitem.forEach(function (a) { return a.style.color = "rgb(116,79,99)"; });
+     // menu.style.background = "rgba(96,125,139,0.49)";
+  }
+  else {
+      navitem.forEach(function (a) { return a.style.color = "black"; });
+     // menu.style.background = "none";
+  }
+}
+var getdot = document.querySelectorAll('.dot_move > .dot');
+console.log(getdot);
+var nextDom = document.querySelector('.move > .next');
+var prevDom = document.querySelector('.move > .prev');
+var nexts = function () {
+    if (window.innerWidth >= 350) {
+        getdot.forEach(function (element) {
+            element.classList.remove("active");
+        }); //making all the dot boxes unactive
+        if (count < image_url.length - 1) {
+            ++count;
+            header.style.backgroundImage = "url(img/".concat(image_url[count], ")");
+            getdot[count].classList.add("active"); //making the position of the below dot active when the image is displayed in that position
+            checkbgcolor(count); //check the background color
+        }
+        else {
+            count = 0;
+            header.style.backgroundImage = "url(img/".concat(image_url[count], ")");
+            getdot[count].classList.add("active");
+            checkbgcolor(count);
+        }
+    }
+    else {
+        header.style.backgroundImage = "none";
+    }
+};
+var prevs = function () {
+    if (window.innerWidth >= 350) {
+        getdot.forEach(function (element) {
+            element.classList.remove("active");
+        }); //making all the dot boxes unactive
+        if (count > 0) {
+            --count;
+            header.style.backgroundImage = "url(img/".concat(image_url[count], ")");
+            getdot[count].classList.add("active");
+            checkbgcolor(count);
+        }
+        else {
+            count = image_url.length - 1;
+            header.style.backgroundImage = "url(img/".concat(image_url[count], ")");
+            getdot[count].classList.add("active");
+            checkbgcolor(count);
+        }
+    }
+    else {
+        header.style.backgroundImage = "none";
+    }
+};
+var inter = setInterval(nexts, 1000);
+window.innerWidth <= 350 ? clearInterval(inter) : null; //stop the interval on smaller screen
+prevDom === null || prevDom === void 0 ? void 0 : prevDom.addEventListener('click', prevs);
+nextDom === null || nextDom === void 0 ? void 0 : nextDom.addEventListener('click', nexts);
