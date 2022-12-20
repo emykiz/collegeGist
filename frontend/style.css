@@ -165,9 +165,7 @@
     display:none;
   }
   @media only screen and (max-width:835px){
-    .social_link, .link-phone_number{
-      display: none;
-    }
+   
     #burger{
         display:block;
         position: absolute;
@@ -566,12 +564,16 @@ footer{
     width:100%;
     padding:20px;
     background-color: black !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .footer-flex{
     width:100%;
     display: flex;
     /* flex-wrap: wrap; */
-    justify-content: space-between;
+    justify-content: space-around;
     font-size: 20px;
     color: gray;
     margin-top: 30px;
@@ -598,6 +600,7 @@ footer{
 }
 
 
+
 /* VIDEO PAGE */
 .Bigtv-section{
     width:100%;
@@ -607,20 +610,56 @@ footer{
     padding: 20px;
     border: 1px solid grey;
     display: flex;
-    height:50vh
+    height:50vh;
+    justify-content: center;
+    align-items: center;
+    margin:auto;
+    background-image: url(images/Ellipse\ 7.png);
+    background-color: rgba(0, 0, 0, 0.699);
+    background-blend-mode: overlay;
+    background-size: cover;
+    background-position: center;
 }
-.Bigtv div{
-  width:100%;
-  background-color: #4558d1;
-  height: 100px;
-  /* margin:auto; */
-  /* object-fit: contain; */
+
+.img2{
+  background-image: url(images/pencil.png);
+  background-color: rgba(0, 0, 0, 0.699);
+  background-blend-mode: overlay;
+  background-size: cover;
+  background-position: center;
+  width:360px;
+  height:230px;
+  border:8px solid white;
+  box-shadow: 0 0 5px 0px black;
+  font-size: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.fa-play{
+.side1{
+  display:flex;
+  gap:1em;
+  flex-wrap: wrap;
+  /* padding: 0 60px; */
+}
+.news-flex .circle .fa-play, .Bigtv .circle .fa-play{
+  display:flex;
+  justify-content: center;
+  align-items: center;
   color:red;
-  font-size: 40px;
-  width: 100%;
+  position: absolute;
+  left:20%;
+  top:20%;
+ 
 }
+.news-flex .circle, .Bigtv .circle{
+  width: 100px !important;
+  height:100px !important;
+  /* border:2px solid white; */
+  border-radius:50%;
+  position: relative;
+}
+
 
     /* section pagination */
 .pagination{
@@ -728,9 +767,7 @@ footer{
 /* MEDIA QUERIES */
 
 @media only screen and (max-width:835px){
-    .social_link, .link-phone_number{
-      display: none;
-    }
+  
     #burger{
         display:block;
         position: absolute;
@@ -788,6 +825,13 @@ footer{
   }
 }
 @media only screen and (max-width:565px){
+  .news-flex .circle{
+    width:40% !important;
+    height: 35% !important;
+  }
+  .news-flex .circle .fa-play{
+    font-size: 18px;
+  }
   .Logo_nav{
     width:60%
   }
