@@ -1200,3 +1200,82 @@ header {
 }
 
 
+.carousel-section{
+  display: grid;
+  place-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.carousel {
+  overflow: hidden;
+  max-width: 900px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.carousel .carousel-item img {
+  width: 100%;
+  height: auto;
+}
+
+.carousel .carousel-item,
+.carousel .carousel-hidden {
+  display: none;
+}
+
+.carousel .carousel-visible {
+  display: block;
+  animation: fadeVisibility 0.5s;
+}
+.cta {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+.cta:hover {
+  opacity: 1;
+}
+.cta-wrapper {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+#prev,
+#next {
+  cursor: pointer;
+  width: auto;
+  padding: 15px;
+  color: #fff;
+  font-size: 24px;
+  transition: 0.4s ease;
+  border-radius: 0 5px 5px 0;
+}
+
+#next {
+  right: 0;
+  border-radius: 4px 0 0 4px;
+}
+
+#prev:hover,
+#next:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+@keyframes fadeVisibility {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: opacity linear;
+  }
+}

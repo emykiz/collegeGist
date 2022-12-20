@@ -360,3 +360,43 @@ var inter = setInterval(nexts, 1000);
 window.innerWidth <= 350 ? clearInterval(inter) : null; //stop the interval on smaller screen
 prevDom === null || prevDom === void 0 ? void 0 : prevDom.addEventListener('click', prevs);
 nextDom === null || nextDom === void 0 ? void 0 : nextDom.addEventListener('click', nexts);
+
+let slidePosition = 0;
+const slides = document.getElementsByClassName('carousel-item');
+const totalSlides = slides.length;
+
+document.getElementById('next').addEventListener('click', function () {
+  moveToNextSlide();
+});
+document.getElementById('prev').addEventListener('click', function () {
+  moveToPrevSlide();
+});
+
+function updateSlidePosition() {
+  for (let slide of slides) {
+    slide.classList.remove('carousel-visible');
+    slide.classList.add('carousel-hidden');
+  }
+
+  slides[slidePosition].classList.add('carousel-visible');
+}
+
+function moveToNextSlide() {
+  if (slidePosition === totalSlides - 1) {
+    slidePosition = 0;
+  } else {
+    slidePosition++;
+  }
+
+  updateSlidePosition();
+}
+
+function moveToPrevSlide() {
+  if (slidePosition === 0) {
+    slidePosition = totalSlides - 1;
+  } else {
+    slidePosition--;
+  }
+
+  updateSlidePosition();
+}
