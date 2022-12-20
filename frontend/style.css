@@ -1203,15 +1203,18 @@ header {
 .carousel-section{
   display: grid;
   place-items: center;
-  width: 100vw;
-  height: 100vh;
+  width: 400px;
+  height: 200px;
+  background-color: blue;
 }
 
 .carousel {
   overflow: hidden;
-  max-width: 900px;
+  max-width: 400px;
+  max-height: 200px;
   border-radius: 10px;
   position: relative;
+  object-fit:contain;
 }
 
 .carousel .carousel-item img {
@@ -1254,7 +1257,7 @@ header {
   cursor: pointer;
   width: auto;
   padding: 15px;
-  color: #fff;
+  color: transparent;
   font-size: 24px;
   transition: 0.4s ease;
   border-radius: 0 5px 5px 0;
@@ -1267,7 +1270,7 @@ header {
 
 #prev:hover,
 #next:hover {
-  background-color: rgba(0, 0, 0, 0.5);
+  /* background-color: rgba(0, 0, 0, 0.5); */
 }
 
 @keyframes fadeVisibility {
