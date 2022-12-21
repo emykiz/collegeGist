@@ -3,7 +3,7 @@ const data = [
       head1:"Admission into Emediong",
       head2:"university of emediong",
       head3:"we bring good tiding",
-      news:"seriously i am good bghv,jhlgj;kklo'po;ljhghjkl;u/o;lhrtyuiop;kljwrtyuioljkjgfdfgklh.,bvcgdhjkjlhvhgcfsiuufytdrrtyuiyftdrsdfghjklkjhvgcfdghjkl;ljkhgfdsdtdyuilk,nmbvcxv bnmbvcxfdtyukklhjcgxftdyuioihgfdffghjklkjhjghf",
+      news:"seriously i am good ",
       image:"Ellipse 7.png"
   },
   {
@@ -268,7 +268,7 @@ const datas =
 window.booksPerPage = 5;
 window.curr = 1;
 data.slice(0,booksPerPage).forEach((obj) => {
-  document.getElementById("data").innerHTML += `<h1 class="head1">${obj.head1}</h1>
+  document.getElementById("data").innerHTML += `<div class=news-body><h1 class="head1">${obj.head1}</h1>
                                                     <h1 class="head2">${obj.head2}</h1>
                                                     <h6 class="head3">${obj.head3}</h6>
                                                     <div class="news-flex">
@@ -279,7 +279,7 @@ data.slice(0,booksPerPage).forEach((obj) => {
                                                             ${obj.news}
                                                             <a href="./viewpost.html"><span>[continue...]</span></a>
                                                         </p>
-                                                    </div>`;
+                                                    </div></div>`;
                                                     
 });
 function changeData(index) {
@@ -292,7 +292,7 @@ function changeData(index) {
       <h1 class="head2">${obj.head2}</h1>
       <h6 class="head3">${obj.head3}</h6>
       <div class="news-flex">
-          <div class="object-fit>
+          <div class="object-fit">
             <img src="images/${obj.image}">
           </div>
           <p class="news-deatails">
