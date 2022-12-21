@@ -180,8 +180,8 @@
         </div>
     </section>
 
-    <section class="pagination">
-        <div>
+    <section class="section-pagination">
+        <!-- <div>
             <h1 class="prev-btn">Previous</h1>
             <ul>
                 <li class="active-pagination">1</li>
@@ -191,7 +191,25 @@
                 <li>5</li>
             </ul>
             <h1 class="next-btn">Next</h1>
-        </div>
+        </div> -->
+        <!-- <h1 class="mt-3 mb-2">Books</h1>
+        
+            <ul class="list-group" id="data"></ul> -->
+
+            <div class="pagination">
+                <!-- <button onclick = "prev()">&lt;</button> -->
+                <h1 onclick = "prev()" class="prev-btn">Previous</h1>
+
+                <button onclick = "changeData(1)" class="active">1</button>
+                <button onclick = "changeData(2)">2</button>
+                <button onclick = "changeData(3)">3</button>
+                <button onclick = "changeData(4)">4</button>
+                <button onclick = "changeData(5)">5</button>
+                <!-- <button onclick = "next()">&gt;</button> -->
+                <h1 onclick = "next()" class="next-btn">Next</h1>
+
+            </div> 
+          
     </section>
 
     <footer>

@@ -57,6 +57,7 @@
   .social_link ul{
     display: flex;
     gap:0.2em;
+    color: white;
   }
   nav a:hover {
     border-bottom: 0 !important;
@@ -563,7 +564,7 @@ cursor: pointer;
 footer{
     width:100%;
     padding:20px;
-    background-color: black !important;
+    background-color: rgb(59, 59, 59) !important;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -575,7 +576,7 @@ footer{
     /* flex-wrap: wrap; */
     justify-content: space-around;
     font-size: 20px;
-    color: gray;
+    color: white;
     margin-top: 30px;
 }
 .flex-footer{
@@ -584,7 +585,7 @@ footer{
     flex-direction: column;
     gap:1em;
 }
-.flex-footer a{
+footer a{
     cursor: pointer;
     text-decoration: none;
     color: gray;
@@ -598,7 +599,9 @@ footer{
     color: gray;
     margin-top: 20px;
 }
-
+.social ul li a img{
+  color:white;
+}
 
 
 /* VIDEO PAGE */
@@ -662,17 +665,9 @@ footer{
 
 
     /* section pagination */
-.pagination{
+.section-pagination{
     width:100%;
-    height: 50vh;
-}
-.pagination div{
-    margin:auto;
-    width:50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap:1em;
+    height: 50vh;display: flex;
 }
 .prev-btn, .next-btn{
     color:rgb(118, 175, 240);
@@ -691,6 +686,39 @@ footer{
 .active-pagination{
     color:gray !important;
     font-size: 20px;
+}
+
+
+/* PAGINATION */
+.pagination {
+  width:50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap:1em;
+  margin: auto;
+}
+
+.pagination button {
+  color: #4558d1;
+  float: left;
+  /* padding: 8px 8px; */
+  width:20px;
+  height:25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination button.active {
+  background-color: #4558d1;
+  color: #fafafa;
+}
+
+.pagination button:hover {
+  background-color: #4558d1;
+  color: #fafafa;
+  cursor: pointer;
 }
 
 
@@ -870,6 +898,9 @@ footer{
   }
 }
 @media only screen and (max-width:395px){
+  .prev-btn, .next-btn{
+    font-size: smaller;
+  }
   .profile-pics{
     width:60px;
     height:60px;
@@ -1095,28 +1126,6 @@ hr{
 }
 
 
-/* PAGINATION */
-.pagination {
-  display: inline-block;
-  background-color: #fafafa;
-}e
-
-.pagination button {
-  color: #4558d1;
-  float: left;
-  padding: 16px 16px;
-}
-
-.pagination button.active {
-  background-color: #4558d1;
-  color: #fafafa;
-}
-
-.pagination button:hover {
-  background-color: #4558d1;
-  color: #fafafa;
-  cursor: pointer;
-}
 
 
 header {
@@ -1281,4 +1290,19 @@ header {
     opacity: 1;
     transform: opacity linear;
   }
+}
+
+.object-fit{
+  width:300px !important;
+  height:200px !important;
+  object-fit: contain !important;
+  display: flex;
+}
+.object-fit img{
+  width:100%;
+  height: 100%;
+}
+.news-flex p  a{
+  text-decoration: none;
+  cursor: pointer;
 }
