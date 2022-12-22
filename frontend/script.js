@@ -1,3 +1,34 @@
+// PASSWORD HIDE
+
+const password = document.querySelector('#password');
+const password2 = document.querySelector('#password2');
+const eye = document.querySelector('.Eye');
+const eye2 = document.querySelector('.Eye2');
+const hidePw = document.querySelector('.fa-eye-slash');
+const hide2 = document.querySelector('.hide2');
+
+eye.onclick = ()=>{
+    password.type = 'text'
+    eye.classList.add('hides');
+    hidePw.classList.remove('hides');
+}
+
+hidePw.onclick = ()=>{
+    password.type = 'password'
+    hidePw.classList.add('hides');
+    eye.classList.remove('hides');
+}
+// hidePw.onclick = ()=>{
+//   password2.type = 'text';
+//   eye2.classList.remove('hides');
+//   hidePw.classList.add('hides');
+
+// }
+// eye2.onclick = ()=>{
+//   password2.type = 'password'
+//   eye2.classList.add('hides');
+//   hidePw.classList.remove('hides');
+// }
 
 const menuIcon = document.querySelector(".menu-icon");
 const lines = document.querySelectorAll(".menu-icon div");
@@ -56,4 +87,10 @@ function moveToPrevSlide() {
   updateSlidePosition();
 }
 
-setInterval(moveToNextSlide, 3000)
+setInterval(moveToNextSlide, 3000);
+
+
+
+
+
+//

@@ -15,6 +15,17 @@ const emailErrormsg = document.querySelector('.email-error-msg');
 const PhoneErrormsg = document.querySelector('.phone-error-msg');
 const passwordErrorMsg = document.querySelector('.password-error-msg')
 const Signup = document.querySelector('.sign-up')
+
+
+//login
+const loginBtn = document.querySelector('.login-btn')
+const passwordError = document.querySelector('.password-error-message');
+const phoneError = document.querySelector('.phone-error-message')
+const Password = document.getElementById('password');
+const Email2 = document.getElementById('email2');
+
+
+console.log(Signup);
 createBtn.onclick = (e)=>{
     if(sOrganization.value == ""){
         sOrganization.style.border = '1px solid red'
@@ -139,62 +150,4 @@ Signup.onclick = ()=>{
 // End of create Account Validation
 
 
-
-//Login Validation
-
-// id="phone/email"
-// id="password"
-// class="login-btn
-
-const loginBtn = document.querySelector('.login-btn')
-const passwordError = document.querySelector('.password-error-message');
-const phoneError = document.querySelector('.phone-error-message')
-const Password = document.getElementById('password');
-
-loginBtn.onclick = (e)=>{
-    if(PhoneEmail.value ===""){
-        PhoneEmail.style.border = '1px solid red'
-        phoneError.style.display = 'block'
-        phoneError.style.color = 'red'
-        e.preventDefault()
-    }
-    else if(Password.value ===""){
-        Password.style.border = '1px solid red'
-        passwordError.style.display = 'block'
-        passwordError.style.color = 'red'
-        e.preventDefault()
-    }
-    else{
-        PhoneEmail.style.border = '1px solid #C4C4C4'
-        Password.style.border = '1px solid #C4C4C4'
-    }
-
-}
-PhoneEmail.onblur =()=>{
-    if(PhoneEmail.value ===""){
-        PhoneEmail.style.border = '1px solid red'
-        phoneError.style.display = 'block'
-        phoneError.style.color = 'red'
-    }
-    else{
-        PhoneEmail.style.border = '1px solid #C4C4C4'
-    }
-}
-PhoneEmail.onfocus = ()=>{
-    phoneError.style.display = 'none'
-}
-
-Password.onblur =()=>{
-    if(Password.value ===""){
-        Password.style.border = '1px solid red'
-        passwordError.style.display = 'block'
-        passwordError.style.color = 'red'
-    }
-    else{
-        Password.style.border = '1px solid #C4C4C4'
-    }
-}
-Password.onfocus = ()=>{
-    passwordError.style.display = 'none'
-}
 

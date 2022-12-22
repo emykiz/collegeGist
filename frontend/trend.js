@@ -1,12 +1,12 @@
-let like = document.querySelector('.likes');
+let like = document.querySelectorAll('.likes');
+let likeclick = document.querySelectorAll('.likeclick');
 let comment = document.querySelector('.comments');
 let share = document.querySelector('.shares');
 count = 0;
-console.log(like);
-function likechange(){
-
-    count++;
-    like.innerText = count;
+console.log(likeclick);
+function likechange(e){
+   count++;
+    like.innerText  = count;
 
     if(count >="10"){
         like.innerText =count.slice(0,1)+"k"
@@ -22,3 +22,14 @@ function sharechange(){
         share.innerText =count.slice(0,1)+"k"
     }
 }
+
+likeclick.forEach(item => 
+    item.onclick = (e)=>{
+    like.forEach(i => e.target.previousElementSibling.innerText = count)
+
+        console.log("get");
+        count++;
+        // e.target.previousElementSibling.innerText = count
+    }
+   
+)

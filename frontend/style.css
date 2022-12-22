@@ -986,16 +986,25 @@ footer a{
 }
 .Eye,.Eye2,.hide2{
     position: absolute;
-    top:40px;
+    top:50%;
     right: 10px;
     z-index: 999;
     color:grey;
     display: none;
 }
-.hide,.hide2{
-    display: block;
+.hides{
+    visibility: hidden;
+    z-index: -1;
+   
 }
-
+.non-hide{
+  visibility: visible;
+}
+.fa-eye-slash{
+  position: absolute !important;
+  top:30px !important;
+  right: 10px !important;
+}
 .flex input, .flex select{
     border: 1px solid #C4C4C4;
     border-radius: 24px;
@@ -1308,4 +1317,12 @@ header {
 .news-flex p  a{
   text-decoration: none;
   cursor: pointer;
+}
+.top{
+  margin-top:-17px;
+  display: none;
+  text-align:center;
+}
+.deco{
+  text-decoration: none;
 }
