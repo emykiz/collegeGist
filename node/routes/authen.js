@@ -22,7 +22,7 @@ router.post('/register', async(req,res) =>{
         const user = await newUser.save();
         console.log(user);
         // res.json({status:'ok'})
-        res.status(200).json(user);
+        res.status(200).json(newUser);
     } catch (err) {
         console.log(err);
         res.status(500).json(err)
@@ -36,18 +36,18 @@ router.post('/login', async (req, res)=>{
         const user = await User.findOne({email:req.body.email})
         !user && res.status(404).json("Wrong credentials")
 
-        // const validated = await bcrypt.compare(req.body.password, user.password)
-        // !validated && res.status(404).json("Wrong credentials")
+        const validated = await bcrypt.compare(req.body.password, user.password)
+        !validated && res.status(404).json("Wrong credentials")
         
         const { password, ...others } = user._doc;
         res.status(200).json(others);
         console.log(others);
-        return  res.redirect("/");   // here 1st response
     }
     catch(err){
-        res.status(500).json(err)
+        // res.status(500).json(err)
+        console.log(err);
     }
-    console.log(err);
+    
 })
 
 module.exports = router

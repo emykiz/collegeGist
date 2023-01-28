@@ -18,17 +18,6 @@ hidePw.onclick = ()=>{
     hidePw.classList.add('hides');
     eye.classList.remove('hides');
 }
-// hidePw.onclick = ()=>{
-//   password2.type = 'text';
-//   eye2.classList.remove('hides');
-//   hidePw.classList.add('hides');
-
-// }
-// eye2.onclick = ()=>{
-//   password2.type = 'password'
-//   eye2.classList.add('hides');
-//   hidePw.classList.remove('hides');
-// }
 
 const menuIcon = document.querySelector(".menu-icon");
 const lines = document.querySelectorAll(".menu-icon div");

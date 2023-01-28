@@ -108,5 +108,61 @@
 </body>
 <script src="validatelogin.js"></script>
 <script src="script.js"></script>
-<script src="connection.js"></script>
+<script>
+    const loginForm = document.getElementById('login-form')
+loginForm.addEventListener('submit', loginUser)
+async function loginUser(e){
+    e.preventDefault();
+
+    const email = document.getElementById('email2').value;
+    const password = document.getElementById('password').value;
+    console.log(email);
+    console.log(password);
+    const data = {
+        'email':email, 
+        'password':password
+    }
+
+   
+    // const result = await fetch('http://localhost:4000/app/login',{
+    //     method:'POST',
+    //     headers : {
+    //         'Content-Type':'application/json',
+    //         // "Access-Control-Allow-Origin": "*",
+    //     },
+    //     body: JSON.stringify(data)
+    // }).then(res=> res.json())
+    // // if(result.status === 200){
+    //   alert("successful login");
+    //   window.location.replace("index.html");
+    // // }else{
+    // //   alert("login failed")
+    // // }
+
+    try {
+        fetch('http://localhost:4000/api/auth/login',{
+            method:'POST',
+            headers : {
+                'Content-Type':'application/json',
+                // "Access-Control-Allow-Origin": "*",
+            },
+            body: JSON.stringify(data)
+        }).then(res=>{
+            if(res.status === 200){
+                alert('login successfully')
+                window.location.href = '/frontend/index.html';
+            }
+            else{
+                alert('email or password not correct')
+            }
+            res.json().then(obj => {
+                console.log(obj);
+                console.log(obj['data']);
+            })
+        })
+    } catch (error) {
+        console.log(error);
+    }
+}
+</script>
 </html>

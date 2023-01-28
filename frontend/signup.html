@@ -243,5 +243,85 @@
 </body>
 <script src="validation.js"></script>
 <script src="script.js"></script>
-<script src="connection.js"></script>
+<script>
+    // Users Registration
+const registerForm = document.getElementById('register-form');
+registerForm.addEventListener('submit', registerUser);
+console.log(registerForm);
+async function registerUser(e){
+   
+   
+    e.preventDefault();
+    const sOrganization = document.getElementById('organization').value;
+    const Createname = document.getElementById('name').value;
+    const phone = document.getElementById('phone').value;
+    const department = document.getElementById('department').value;
+    const year = document.getElementById('year').value;
+    const dateofbirth = document.getElementById('dob').value;
+    const email = document.getElementById('email').value;
+    const programme = document.getElementById('programme').value;
+    const createPassword = document.getElementById('password2').value;
+    const data = {
+        'fullname':Createname,
+        'university':sOrganization,
+        'department':department,
+        'programme':programme,
+        'email':email,
+        'phone':phone,
+        'year':year,
+        'dateofbirth':dateofbirth,
+        'password':createPassword,
+    }
+    // console.log(data);
+    // const result = await fetch('http://localhost:4000/api/auth/register',{
+    //         method:'POST',
+    //         headers : {
+    //             'Content-Type':'application/json',
+    //             // "Access-Control-Allow-Origin": "*",
+    //         },
+    //         body: JSON.stringify(data)
+    //       }).then((res)=> res.json())
+    //       console.log(res.json());
+    //       // .then(json => console.log(json));
+    //       // console.log(result.status);
+    //       // if(res.json().statusCode === 200){
+    //       //   alert("successful registration");
+    //       alert("registration successful")
+    //         window.location.href = '/frontend/index.html';
+    //       // }else{
+    //       //   alert("Registration failed")
+    //       //   alert(result.err)
+            
+    //       // }
+    //   }
+      try {
+        fetch('http://localhost:4000/api/auth/register',{
+            method:'POST',
+            headers : {
+                'Content-Type':'application/json',
+                // "Access-Control-Allow-Origin": "*",
+            },
+            body: JSON.stringify(data)
+        }).then(res=>{
+            console.log('finished fetching')
+            console.log(res);
+            console.log(res.status);
+            res.json().then(obj => {
+                console.log(obj);
+                console.log(obj['data']);
+            })
+            if(res.status === 200){
+                alert('succesful registered')
+                window.location.href = '/frontend/index.html';
+            }
+            else{
+                alert(' registerztion failed')
+            }
+          
+        })
+    } catch (error) {
+        console.log(error);
+    }
+}
+</script>
 </html>
